@@ -1,9 +1,9 @@
-import Card from "@/components/Card";
+import GameBoard from "@/components/GameBoard";
 
 function App() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-blue-200">
-      <Card />
+      <GameBoard />
     </div>
   );
 }

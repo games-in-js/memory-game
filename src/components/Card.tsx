@@ -8,7 +8,11 @@ const CARD_STYLES = {
   front: "rotate-y-180 border-purple-200 bg-white",
 };
 
-function Card() {
+type CardProps = {
+  emoji: string;
+};
+
+function Card({ emoji }: CardProps) {
   const [isFlipped, setIsFlipped] = useState(false);
 
   const handleClick = () => {
@@ -30,7 +34,7 @@ function Card() {
         </div>
 
         {/* Card front */}
-        <div className={cn(CARD_STYLES.base, CARD_STYLES.front)}>🍬</div>
+        <div className={cn(CARD_STYLES.base, CARD_STYLES.front)}>{emoji}</div>
       </div>
     </div>
   );
