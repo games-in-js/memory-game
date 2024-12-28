@@ -1,4 +1,6 @@
+import { motion } from "motion/react";
 import { Brain, Sparkles, Zap } from "lucide-react";
+import { ANIMATIONS } from "@/constants";
 
 const DIFFICULTIES = [
   {
@@ -21,7 +23,10 @@ const DIFFICULTIES = [
 function DifficultySelector() {
   return (
     <div className="flex min-h-screen w-full flex-col items-center justify-center gap-4 bg-blue-200 p-4 sm:gap-8 sm:p-8">
-      <div className="flex w-full flex-col gap-6 px-4">
+      <motion.div
+        {...ANIMATIONS.fadeInUp}
+        className="flex w-full flex-col gap-6 px-4"
+      >
         <h2 className="mb-2 text-center text-2xl font-bold text-white sm:mb-4 sm:text-3xl">
           Select Difficulty
         </h2>
@@ -41,7 +46,7 @@ function DifficultySelector() {
             </button>
           ))}
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

@@ -5,7 +5,7 @@ import DifficultySelector from "@/components/DifficultySelector";
 
 function App() {
   const gameCompleted = false;
-  const difficulty = null;
+  const difficulty = "easy";
 
   if (!difficulty) return <DifficultySelector />;
 
