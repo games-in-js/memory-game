@@ -13,7 +13,7 @@ const CARDS = [...EMOJIS, ...EMOJIS]
 
 function GameBoard() {
   return (
-    <div className="grid grid-cols-4 gap-2 rounded-xl bg-blue-100 p-2">
+    <div className="grid grid-cols-4 gap-2 rounded-xl bg-blue-100 p-2 sm:gap-4 sm:p-4">
       {CARDS.map((card) => (
         <Card key={card.id} {...card} />
       ))}
