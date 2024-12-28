@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -11,19 +10,15 @@ const CARD_STYLES = {
 
 type CardProps = {
   emoji: string;
+  isFlipped: boolean;
+  onClick: () => void;
 };
 
-function Card({ emoji }: CardProps) {
-  const [isFlipped, setIsFlipped] = useState(false);
-
-  const handleClick = () => {
-    setIsFlipped(!isFlipped);
-  };
-
+function Card({ emoji, isFlipped, onClick }: CardProps) {
   return (
     <div
       className="xs:h-20 xs:w-20 relative h-16 w-16 cursor-pointer sm:h-24 sm:w-24"
-      onClick={handleClick}
+      onClick={onClick}
     >
       {/* div do 3D */}
       <div
