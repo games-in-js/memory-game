@@ -10,8 +10,6 @@ function App() {
 
   const { cards, handleCardClick } = useMemoryGame();
 
-  console.log(cards);
-
   if (!difficulty) return <DifficultySelector />;
 
   return (
