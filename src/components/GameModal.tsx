@@ -1,6 +1,6 @@
 type GameModalProps = {
   moves: number;
-  time: number;
+  time: string;
   onRestart: () => void;
 };
 

@@ -14,19 +14,29 @@ export const createShuffledCards = () => {
     }));
 };
 
+export const checkGameCompletion = (cards: Card[]) => {
+  return cards.every((card) => card.isMatched);
+};
+
 export function useMemoryGame() {
   const [cards, setCards] = useState<Card[]>([]);
   const [flippedCards, setFlippedCards] = useState<Card[]>([]);
   const [moves, setMoves] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
+  const [gameCompleted, setGameCompleted] = useState(false);
 
-  const { time } = useTimer(gameStarted);
+  const { time, resetTime } = useTimer(gameStarted && !gameCompleted);
 
   const initializeGame = () => {
     setCards(createShuffledCards());
+    setMoves(0);
+    resetTime();
+    setGameStarted(false);
+    setGameCompleted(false);
+    setFlippedCards([]);
   };
 
-  useEffect(initializeGame, []);
+  useEffect(initializeGame, [resetTime]);
 
   const handleCardClick = (id: number) => {
     const clickedCard = cards.find((card) => card.id === id)!;
@@ -72,6 +82,10 @@ export function useMemoryGame() {
 
         setCards(updatedCards);
         setFlippedCards([]);
+
+        if (isMatched && checkGameCompletion(updatedCards)) {
+          setGameCompleted(true);
+        }
       }, 500);
     }
   };
@@ -80,6 +94,7 @@ export function useMemoryGame() {
     cards,
     moves,
     time,
+    gameCompleted,
     handleCardClick,
     resetGame: initializeGame,
   };
