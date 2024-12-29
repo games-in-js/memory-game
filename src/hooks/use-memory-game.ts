@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
-import { EMOJIS } from "@/constants";
-import { Card } from "@/types";
+import { EMOJIS, PAIR_COUNTS } from "@/constants";
+import { Card, Difficulty } from "@/types";
 import { useTimer } from "./use-timer";
 
-export const createShuffledCards = () => {
-  return [...EMOJIS, ...EMOJIS]
+export const createShuffledCards = (difficulty: Difficulty) => {
+  const pairs = PAIR_COUNTS[difficulty];
+  const gameEmojis = EMOJIS.slice(0, pairs);
+
+  return [...gameEmojis, ...gameEmojis]
     .sort(() => Math.random() - 0.5)
     .map((emoji, index) => ({
       id: index,
@@ -18,7 +21,7 @@ export const checkGameCompletion = (cards: Card[]) => {
   return cards.every((card) => card.isMatched);
 };
 
-export function useMemoryGame() {
+export function useMemoryGame(difficulty: Difficulty) {
   const [cards, setCards] = useState<Card[]>([]);
   const [flippedCards, setFlippedCards] = useState<Card[]>([]);
   const [moves, setMoves] = useState(0);
@@ -28,7 +31,7 @@ export function useMemoryGame() {
   const { time, resetTime } = useTimer(gameStarted && !gameCompleted);
 
   const initializeGame = () => {
-    setCards(createShuffledCards());
+    setCards(createShuffledCards(difficulty));
     setMoves(0);
     resetTime();
     setGameStarted(false);
@@ -36,7 +39,7 @@ export function useMemoryGame() {
     setFlippedCards([]);
   };
 
-  useEffect(initializeGame, [resetTime]);
+  useEffect(initializeGame, [difficulty, resetTime]);
 
   const handleCardClick = (id: number) => {
     const clickedCard = cards.find((card) => card.id === id)!;
