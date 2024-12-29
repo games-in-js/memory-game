@@ -8,18 +8,18 @@ function App() {
   const gameCompleted = false;
   const difficulty = "easy";
 
-  const { cards, moves, handleCardClick } = useMemoryGame();
+  const { cards, moves, time, handleCardClick } = useMemoryGame();
 
   if (!difficulty) return <DifficultySelector />;
 
   return (
     <div className="flex min-h-screen w-full flex-col items-center justify-center gap-4 bg-blue-200 p-4 sm:gap-8 sm:p-8">
-      <ScoreBoard moves={moves} time={0} onRestart={() => {}} />
+      <ScoreBoard moves={moves} time={time} onRestart={() => {}} />
 
       <GameBoard cards={cards} onCardClick={handleCardClick} />
 
       {gameCompleted && (
-        <GameModal moves={moves} time={0} onRestart={() => {}} />
+        <GameModal moves={moves} time={time} onRestart={() => {}} />
       )}
     </div>
   );

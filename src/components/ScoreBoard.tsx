@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { MousePointerClick, Clock, RotateCcw, LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { ANIMATIONS } from "@/constants";
+import { formatTime } from "@/lib/formatTime";
 
 type ScoreBoardProps = {
   moves: number;
@@ -48,7 +49,7 @@ export function ScoreBoard({ moves, time, onRestart }: ScoreBoardProps) {
           icon={icon}
           label={label}
           color={color}
-          value={label === "Time" ? time : moves}
+          value={label === "Time" ? formatTime(time) : moves}
         />
       ))}
 
