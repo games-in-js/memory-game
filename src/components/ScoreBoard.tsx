@@ -36,7 +36,7 @@ const ScoreItem = ({ icon: Icon, label, value, color }: ScoreItemProps) => (
   </div>
 );
 
-export function ScoreBoard({ moves, time, onRestart }: ScoreBoardProps) {
+function ScoreBoard({ moves, time, onRestart }: ScoreBoardProps) {
   return (
     <motion.div
       {...ANIMATIONS.fadeInDown}
