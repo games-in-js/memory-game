@@ -1,6 +1,6 @@
 # MEMORY GAME
 
-![Tic tac toe](/src/docs/memory-game.webp)
+![Memory Game](/src/docs/memory-game.webp)
 
 Desenvolva um jogo da memória dinâmico trabalhando com arrays, animações e hooks customizados.
 
