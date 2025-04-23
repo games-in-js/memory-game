@@ -1,50 +1,47 @@
-# React + TypeScript + Vite
+# MEMORY GAME
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Tic tac toe](/src/docs/memory-game.webp)
 
-Currently, two official plugins are available:
+Desenvolva um jogo da memória dinâmico trabalhando com arrays, animações e hooks customizados.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Stack
 
-## Expanding the ESLint configuration
+- Vite
+- React
+- Typescript
+- Tailwind
+- Motion
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Tópicos abordados
 
-- Configure the top-level `parserOptions` property like this:
+1. Introdução 
+2. Inicializando a partir de boilerplate e configurando alias  
+3. Criando componente Card  
+4. Refatorando classes para usar clsx e tailwind-merge  
+5. Criando componente GameBoard  
+6. Criando componente ScoreBoard  
+7. Criando Modal  
+8. Tornando responsivo  
+9. Criando tela de dificuldade  
+10. Adicionando animações  
+11. Criando hook customizado para os estados  
+12. Fazendo o flip das cartas pelos estados  
+13. Fazendo a lógica de comparar cartas e setTimeout  
+14. Fazendo a lógica para contagem de movimentos  
+15. Mostrando o tempo de jogo  
+16. Mostrando o modal de game completed e reiniciar  
+17. Adicionando dificuldades
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Como rodar o jogo
+
+```
+npm install
+npm run dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Quer aprender como desenvolver esse jogo?
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+Vá ao site: [Games in JS](https://games.willianjusten.com.br/) para saber mais!
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### Junte-se a nossa comunidade
+[![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/scEGUGhDuN)
